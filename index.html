@@ -99,7 +99,7 @@ svg.ic{width:1.3em;height:1.3em;flex:none;vertical-align:-.28em;fill:none;stroke
   background:var(--miss-bg);border:2px dashed var(--miss);border-radius:var(--blob)}
 .msg{min-height:1.4em;margin:6px 0 0;font-size:.9rem;color:var(--bad)}
 
-label.f{display:grid;gap:2px;font-size:.92rem;color:var(--muted);min-width:0}
+label.f{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;font-size:.92rem;color:var(--muted);min-width:0}
 input[type=text],select{width:100%;min-width:0;padding:8px 12px;background:var(--bg);color:var(--text);border:2px solid var(--line);border-radius:14px}
 input[type=text]:focus,select:focus{border-color:var(--accent);outline:none}
 .row{display:flex;gap:8px}
@@ -186,6 +186,10 @@ td.owe{font-size:1.15rem;font-weight:var(--fw-strong);color:var(--accent)}
 .newbook{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:end}
 input[type=date],input[type=search]{width:100%;min-width:0;padding:8px 12px;background:var(--bg);color:var(--text);border:2px solid var(--line);border-radius:14px}
 input[type=date]:focus,input[type=search]:focus{border-color:var(--accent);outline:none}
+input[type=text],input[type=date],input[type=search],select{min-height:44px}
+/* iPhone 的日期欄有自己的內建寬度，要關掉原生外觀才會照版面對齊 */
+input[type=date]{display:block;max-width:100%;-webkit-appearance:none;appearance:none}
+input[type=date]::-webkit-date-and-time-value{text-align:left}
 .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .tools input{flex:1 1 220px;width:auto}
 .pills{display:flex;gap:6px;flex-wrap:wrap}
